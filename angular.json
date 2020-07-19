@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "abastidasCV"
+    }
+  },
+  "defaultProject": "abastidasCV",
+  "cli": {
+    "analytics": false
+  }
 }
