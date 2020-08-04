@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CvabastidasService } from '../services/cvabastidas.service';
 
 @Component({
   selector: 'app-resumen',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResumenComponent implements OnInit {
 
-  constructor() { }
+  constructor(public cv: CvabastidasService) { }
 
   ngOnInit(): void {
   }
