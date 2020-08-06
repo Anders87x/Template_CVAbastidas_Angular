@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CvabastidasService } from '../services/cvabastidas.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-blog',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogComponent implements OnInit {
 
-  constructor() { }
+  constructor(public cv: CvabastidasService,
+              private sanitizer: DomSanitizer
+              ) { }
 
   ngOnInit(): void {
+  }
+
+  getVideoIframe(url) {
+    let video;
+    let results;
+
+    if (url === null) {
+        return '';
+    }
+    results = url.match('[\\?&]v=([^&#]*)');
+    video = (results === null) ? url : results[1];
+
+    return this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + video);
   }
 
 }
